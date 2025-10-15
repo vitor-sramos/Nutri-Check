@@ -31,4 +31,11 @@ public class EmpresaService {
         ));
     }
 
+    public void deletarPorId(Long id) {
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Empresa não encontrada com id: " + id);
+        }
+        repository.deleteById(id);
+    }
+
 }

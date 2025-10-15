@@ -31,4 +31,10 @@ public class EmpresaController {
     public ResponseEntity<EmpresaResponseDTO> listarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(service.listarPorId(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarPorId(@PathVariable Long id) {
+        service.deletarPorId(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
