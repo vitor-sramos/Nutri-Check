@@ -37,4 +37,10 @@ public class EmpresaController {
         service.deletarPorId(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<EmpresaResponseDTO> editarPorId(@PathVariable Long id, @RequestBody EmpresaRequestDTO dto) {
+        return ResponseEntity.ok(service.editarPorId(id, dto));
+    }
 }
