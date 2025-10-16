@@ -32,6 +32,13 @@ public class EmpresaService {
         ));
     }
 
+    public void deletarPorId(Long id) {
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Empresa não encontrada com id: " + id);
+        }
+        repository.deleteById(id);
+    }
+
     public EmpresaResponseDTO editarPorId(Long id, EmpresaRequestDTO dto) {
         Empresa empresa = repository.findById(id).orElseThrow(
                 ()-> new RuntimeException("Empresa não encontrada com id: " + id)
