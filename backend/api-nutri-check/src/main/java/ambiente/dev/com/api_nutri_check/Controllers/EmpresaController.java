@@ -31,4 +31,9 @@ public class EmpresaController {
     public ResponseEntity<EmpresaResponseDTO> listarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(service.listarPorId(id));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<EmpresaResponseDTO> editarPorId(@PathVariable Long id, @RequestBody EmpresaRequestDTO dto) {
+        return ResponseEntity.ok(service.editarPorId(id, dto));
+    }
 }
